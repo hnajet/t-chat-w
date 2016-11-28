@@ -22,3 +22,18 @@ W est un framework minimaliste. Il suit les structures et les grand thèmes des 
 ####Auteurs :
 * Guillaume Sylvestre : [@gsylvestre](https://github.com/gsylvestre) (auteur original)
 * Axel Wargnier : [@axessweb](https://github.com/axessweb)
+
+<!-- 
+
+Pour crée une nouvelle page dans notre vue :
+
+1- On crée si besoin un nouveau Controleur comme dans test controlleur
+2- Nouvelle action ( c'est la fonction public function mon action dans test controller)
+3- On crée une nouvelle route comme dans route.php
+4-On crée une vue comme dans views dossier test index.php
+
+
+
+
+
+ -->

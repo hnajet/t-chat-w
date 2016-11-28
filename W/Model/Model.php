@@ -18,12 +18,13 @@ abstract class Model
 	protected $dbh;
 
 	/**
-	 * Constructeur
+	 * Constructeur : on fait appel a la methode contruct lorsque lon instancie un objet
 	 */
 	public function __construct()
 	{
 		$this->setTableFromClassName();
 		$this->dbh = ConnectionModel::getDbh();
+		// elle initialise la connection a la base de donnée
 	}
 
 	/**
