@@ -67,7 +67,7 @@ class AuthentificationModel
 	
 
 	/**
-	 * Utilise les données utilisateurs présentes en base pour mettre à jour les données en session
+	 * Utilise les données utilisateurs présentes en base pour mettre à jour les données en session ( c'est pour raffraichir les donnees stocké en session, mettre a jour les informations aussi en session dans le cas ou l'utlisateur à modifier par exemple son adresse mail en bdd, refresh permet de rafraichir aussi en session)
 	 * @return boolean
 	 */
 	public function refreshUser()

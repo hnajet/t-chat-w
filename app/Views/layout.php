@@ -22,12 +22,18 @@
 			<h3><a href="<?php echo $this->url('default_home'); ?>" title="revenir à l'acceuil">Les salons</h3>
 			<nav>
 				<ul id="menu-salons">
+
+					<?php foreach ($salons as $salon) : ?>
+						<!-- ici salon est equivalent à $salon[$i] dans la boucle for -->
+						<!-- mon href va pointer vers une nouvelle page (salon.php) dans lequel je vais pouvoir récuperer ma variable "id" grace a $_GET['id]-->
 					<li>
-						<a  href="<?php echo $this->url('users_list'); ?>" title="Liste des utilisateurs">Liste des utilisateurs</a> 
+						<a  href="<?php echo $this->url('see_salon', array('id'=>$salon['id'])) ?>"><?php echo $this->e($salon['nom']); ?></a>
 
 					</li>
+
+				<?php endforeach ; ?>
 					<li>
-						<a  href="deconnexion.php" title="se déconnecter de T-Chat">Déconnexion</a>
+						<a  href="<?php echo $this->url('logout'); ?>" title="se déconnecter de T-Chat">Déconnexion</a>
 					</li>
 				</ul>
 				

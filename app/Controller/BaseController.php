@@ -3,7 +3,8 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \Model\SalonModel;
+use \Model\SalonsModel;
+
 class BaseController extends Controller{
 	// on veut que notre engine soit disponible dans toute les methodes.
 	// protected car on ne souhaite pas qu"elle soit en public
@@ -21,10 +22,10 @@ class BaseController extends Controller{
 
 		// je stocke dans la variable de class engine une instance de League\plates\engine alors que cette instance etait crée directement dans la methode show de controller.
 
-		$this->engine = new \league\plates\engine(self::PATH_VIEWS);
+		$this->engine = new \League\Plates\Engine(self::PATH_VIEWS);
 
 		// charger  nos extensions (nos fonctions personnalisées)
-		$this->engine->liadExtension(new W\View\Plates\PlatesExtensions());
+		$this->engine->loadExtension(new \W\View\Plates\PlatesExtensions());
 
 		$app =getApp();
 
@@ -52,7 +53,7 @@ class BaseController extends Controller{
 		$file = str_replace('.php', '', $file);
 
 		// Affiche le template
-		echo $engine->render($file, $data);
+		echo $this->engine->render($file, $data);
 		die();
 
 	}
