@@ -7,6 +7,7 @@
 		['GET|POST', '/salon/[i:id]','Salon#seeSalon', 'see_salon'],
 		['GET|POST', '/login','User#login', 'login'],
 		['GET', '/logout','User#logout', 'logout'],
+		['GET|POST', '/register', 'User#register', 'register']
 		// le nom de la route s'appelle login car dans config il etait appeler par default login
 		// Ici on met get et post car on pourra afficher les messages d'un salon mais aussi posté des messages dans un salon
 

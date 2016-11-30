@@ -54,6 +54,14 @@
 		<footer>
 		</footer>
 	</div>
+
+	<script
+  			src="https://code.jquery.com/jquery-2.2.4.js"
+ 			 integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+ 			 crossorigin="anonymous">		 
+ 	</script>
+
+ 	<script type="text/javascript"src="<?php echo $this->assetUrl('js/close-flash-messages.js') ?>"></script>
 </body>
 </html>
 <!-- c'est une structure commune que l'on va retrouver sur toute les pages  ctrl f5 pour vider le cache et réactualisé le css-->

@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Model\SalonsModel;
+use \Plasticbrain\FlashMessages\FlashMessages;
 
 class BaseController extends Controller{
 	// on veut que notre engine soit disponible dans toute les methodes.
@@ -12,6 +13,12 @@ class BaseController extends Controller{
 		Ce champ va contenir l'engine de plates qui va servir à afficher mes vues
 	*/
 	protected $engine;
+
+	/*
+		Ce champ va contenir une instance de flash messenger de php-flash-message
+	*/
+	protected $fmsg;
+
 
 	// -> on initialise notre variable engine
 	public function __construct(){
@@ -31,6 +38,7 @@ class BaseController extends Controller{
 
 		// on instancie un nouveau model de salon et ce model on va l'utiliser pour assigner tout nos salons globalement
 		$salonsModel = new SalonsModel();
+		$this->fmsg = new \Plasticbrain\FlashMessages\FlashMessages();
 		// rend  certaines données disponibles à tous les vue 
 		// accesible avec $w_user et $w_current_route dans les fichiers de vue
 		$this->engine->addData(
@@ -39,12 +47,12 @@ class BaseController extends Controller{
 			'w_user' 			=> $this->getUser(),
 			'w_current_route' 	=>$app->getcurrentRoute(),
 			'w_site_name' 		=>$app->getconfig('site_name'),
-			'salons' 			=>$salonsModel->findAll()
-
-
-
+			'salons' 			=>$salonsModel->findAll(),
+			'fmsg'				=>$this->getFlashMessenger()
 			]
 		);
+
+		
 	}
 	// on a externaliser notre engine on va l'utilser dans la methode show pour afficher nos vue
 	public function show($file, array $data =array()){
@@ -64,7 +72,18 @@ class BaseController extends Controller{
 	cette fonction sert à ajouter des données qui seront disponibles dans toute les vues fabriquée par $this->engine (donct par le biais du controler)
 
 	*/
+
+	/**
+	retourne une instance du flash messenger de php-flash-messages 
+	@return FlashMessages
+
+	*/
+
 	public function addGlobalData(array $datas){
 		$this->engine->addData($datas);
+	}
+
+	public function getFlashMessenger(){
+		return $this->fmsg;
 	}
 }

@@ -4,6 +4,9 @@
 
 <h2>Connectez-vous à T'Chat</h2>
 
+<?php $fmsg->display(); ?>
+<!-- display fait un echo du html des messages d"erreurs -->
+
     <form action="<?php $this->url('login') ?>" method="POST">
         <p>
             <label for="pseudo">
